@@ -1,0 +1,23 @@
+﻿<Window x:Class="WpfGoogleMapClient.KinectImageWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="KinectImageWindow" Height="333" Width="329" Topmost="True">
+    <Grid>
+        <StackPanel Orientation="Horizontal">
+            <Slider Orientation="Vertical" x:Name="elevationSlider" Minimum="{Binding ElevationMinimum}" Maximum="{Binding ElevationMaximum}" Value="{Binding ElevationAngle, Mode=TwoWay}"/>
+        </StackPanel>
+        <StackPanel Orientation="Vertical" Margin="30,0,0,0" Grid.RowSpan="2">
+            <StackPanel Orientation="Horizontal">
+                <Button Content="Record" x:Name="recordOption" Click="recordOption_Click" Margin="5" VerticalAlignment="Center"/>
+                <Button Content="Replay" x:Name="replayButton" Click="replayButton_Click" Margin="5" VerticalAlignment="Center"/>
+                <CheckBox Content="Audio Control" x:Name="audioControl" VerticalAlignment="Center"/>
+            </StackPanel>
+            <Grid ClipToBounds="True">
+                <Image x:Name="kinectDisplay" Source="{Binding Bitmap}"></Image>
+                <Canvas x:Name="kinectCanvas"></Canvas>
+            </Grid>
+            <CheckBox x:Name="viewSkeleton" HorizontalAlignment="Right" Content="スケルトン表示" VerticalAlignment="Center" />
+            <CheckBox Content="変化量記録" HorizontalAlignment="Right" Height="16" Name="recordChangeValue" />
+        </StackPanel>
+    </Grid>
+</Window>
